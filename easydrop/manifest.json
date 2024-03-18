@@ -1,0 +1,41 @@
+{
+  "manifest_version": 2,
+  "name": "Easydrop",
+  "description": "Fournit la transcription de positions ou de matchs de site de backgammon.",
+  "version": "0.1.0",
+  "background": {
+      "scripts": ["background.js"]
+  },
+  "permissions": ["notifications"],
+
+  "commands": {
+      "my-shortcut": {
+          "suggested_key": {
+              "default": "Ctrl+Shift+U",
+              "mac": "Command+Shift+U"
+          },
+          "description": "It throws notification"
+      }
+  },
+
+  "browser_action": {
+      "default_icon": {
+          "16": "icons/dice-16.png",
+          "24": "icons/dice-24.png",
+          "32": "icons/dice-32.png",
+          "48": "icons/dice-48.png",
+          "64": "icons/dice-64.png",
+          "128": "icons/dice-128.png",
+          "256": "icons/dice-256.png"
+      }
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["*://www.backgammongalaxy.com/*",
+      "*://heroes.backgammonstudio.com/*"],
+      "js": ["easydrop.js"]
+    }
+  ]
+}
+
